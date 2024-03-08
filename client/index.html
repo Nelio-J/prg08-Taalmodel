@@ -8,17 +8,36 @@
 </head>
 <body>
 
-<div class="container">
-    <h1>OpenAI Chat</h1>
 
-    <form id="chatForm">
-        <label for="queryInput">Enter your question:</label><br>
-        <input type="text" id="queryInput" name="query" placeholder="Enter a Pokémon..."><br>
-        <button type="submit" id="submitBtn">Submit</button>
-    </form>
+<div id="home">
+    <div class="aboutImg">
+        <img src="https://www.pngmart.com/files/2/Pokeball-PNG-Image.png" class="pokemon-ball" width="300" alt="Image of a Pokemon ball">
+    </div>
+    <section class="content">
 
-    <div id="loader" class="hidden"></div>
+        <h1>Competitive Moveset Generator</h1>
+
+        <div class="container">
+            <form id="initialForm">
+                <label for="initialQueryInput">Enter a Pokémon name:</label><br>
+                <input type="text" id="initialQueryInput" placeholder="Enter Pokémon name...">
+                <button type="submit" id="initialSubmitButton">Submit</button>
+            </form>
+
+            <form id="chatForm" style="display: none;">
+                <label for="queryInput">Would you like anything changed?:</label><br>
+                <textarea id="queryInput" name="query" placeholder="Type your message here..."></textarea>
+                <button type="submit" id="submitBtn">Submit</button>
+            </form>
+        </div>
+    </section>
+</div>
+
+<div id="chatContainer">
+    <img id="pokemonSprite" src="" alt="Pokemon Sprite" style="display: none;">
     <div id="response" class="hidden"></div>
+    <div id="moveset" class="hidden"></div>
+    <div id="loader" class="hidden"></div>
 </div>
 
 </body>
