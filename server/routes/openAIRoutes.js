@@ -9,6 +9,7 @@ openAIRoutes.use(express.json());
 const chatHistory = []; // Initialize chat history array
 
 const model = new ChatOpenAI({
+    // openAIApiKey: process.env.OPENAI_API_KEY,
     azureOpenAIApiKey: process.env.AZURE_OPENAI_API_KEY,
     azureOpenAIApiVersion: process.env.OPENAI_API_VERSION,
     azureOpenAIApiInstanceName: process.env.INSTANCE_NAME,

@@ -47,6 +47,19 @@ $ cd server
 # Install dependencies
 $ npm install
 
+# Set up the .env file with your OpenAI API key
+$ Make a .env file in the root of the server folder and add the following:
+$    EXPRESS_PORT=8000
+    
+    # Get your OpenAI API key from the OpenAI platform and add it here. The default is:
+$    OPENAI_API_KEY=your_api_key
+
+# If needed, add your OpenAI API key specifics in the configuration of model in openAIRoutes.js. My current configuration uses Azure OpenAI. If you want to use the default, you can remove everything related to Azure, so you end up with:
+$   const model = new ChatOpenAI({
+$       openAIApiKey: process.env.OPENAI_API_KEY,
+$       });
+        
+
 # Run the app
 $ npm run dev
 ```
