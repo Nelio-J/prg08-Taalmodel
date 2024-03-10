@@ -7,7 +7,7 @@
   <br>
 </h1>
 
-<h4 align="center">An app built on top of OpenAI to generate competitive viable Pokémon builds. <a href="https://openai.com/" target="_blank">OpenAI</a>.</h4>
+<h4 align="center">An app built on top of <a href="https://openai.com/" target="_blank">OpenAI</a> to generate competitive viable Pokémon builds. .</h4>
 
 <p>
   <a href="#key-features">Key Features</a> •
