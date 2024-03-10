@@ -1,5 +1,6 @@
 import express from "express";
 import {ChatOpenAI} from "@langchain/openai";
+import { Cohere } from "@langchain/cohere";
 
 const openAIRoutes = express.Router();
 openAIRoutes.use(express.urlencoded({extended: true}));
@@ -13,6 +14,15 @@ const model = new ChatOpenAI({
     azureOpenAIApiInstanceName: process.env.INSTANCE_NAME,
     azureOpenAIApiDeploymentName: process.env.ENGINE_NAME,
 })
+
+const modelCohere = new Cohere({
+    temperature: 0.0,
+    apiKey: process.env.COHERE_API_KEY // In Node.js defaults to process.env.COHERE_API_KEY
+});
+// const res = await modelCohere.invoke(
+//     "What would be a good company name a company that makes colorful socks?"
+// );
+// console.log({ res });
 
 openAIRoutes.use("/", (req, res, next) => {
     console.log("Requested /");
@@ -68,6 +78,24 @@ openAIRoutes.get('/joke', checkAcceptHeader, async (req, res) => {
 
         // Return the joke as a response
         res.send(joke.content);
+    } catch (error) {
+        // If an error occurs, return an error response
+        console.error('Error retrieving joke:', error);
+        res.status(500).send('Error retrieving joke');
+    }
+});
+
+openAIRoutes.get('/pokemonCohere', checkAcceptHeader, async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+
+    try {
+        // Invoke the LangChain model to get a joke
+        const joke = await modelCohere.invoke("Can you give me a competitively viable moveset for Cinderace in Pokemon Sword and Shield? Please include an EV-spread, nature, ability and held item. Please structure it like this, line separated: Name @ Held item Ability: EVs: 252 stat / 4 stat / 252 stat Nature - Move #1 - Move #2 - Move #3 - Move #4. I don't need any other information outside of the given structure. If the Pokémon is not officially known, please return: Error - Pokémon not found. Please check your spelling.");
+
+        console.log(joke);
+        // Return the joke as a response
+        res.send(joke);
     } catch (error) {
         // If an error occurs, return an error response
         console.error('Error retrieving joke:', error);
@@ -157,7 +185,7 @@ openAIRoutes.post('/chat', checkContentTypeHeader, async (req, res) => {
 function extractPokemonName(responseContent, originalQuery) {
     // Regular expression to match the first word before a space or '@' character
     const matches = responseContent.match(/^([^\s@]+)/);
-    // Extracted Pokémon name or fallback to the original query
+    // Return the extracted Pokémon name or fallback to the original query
     return matches ? matches[0].toLowerCase() : originalQuery.toLowerCase();
 }
 

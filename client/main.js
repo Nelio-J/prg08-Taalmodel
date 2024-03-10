@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const responseData = await response.json();
 
-            // Update chat history with initial query and model response
+            // Update chat history with the model's response
             chatHistory = responseData.history;
             // console.log(chatHistory);
             console.log(responseData);
@@ -83,9 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return; // Do nothing if input is empty
         }
 
-        // // Display user message
-        // displayMessage(query, 'user');
-
         // Disable form elements while waiting for response
         queryInput.disabled = true;
         submitBtn.disabled = true;
@@ -106,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const responseData = await response.json();
 
-            // Update chat history with initial query and model response
+            // Update chat history with the model's response
             chatHistory = responseData.history;
 
             console.log(responseData);
@@ -147,18 +144,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    function displayMessage(message, role) {
-        const messageElement = document.createElement('div');
-        messageElement.classList.add(role);
-        messageElement.textContent = message;
-        chatContainer.appendChild(messageElement);
-    }
+    // function displayMessage(message, role) {
+    //     const messageElement = document.createElement('div');
+    //     messageElement.classList.add(role);
+    //     messageElement.textContent = message;
+    //     chatContainer.appendChild(messageElement);
+    // }
 
     // Function to check if the response is a moveset
     function isMoveset(response) {
-        // You can implement your logic here to check if the response is a moveset
-        // For example, you can check if the response contains specific keywords or follows a certain pattern
-        // For simplicity, let's assume that if the response contains '@' and '-' characters, it's a moveset
         return response.includes('@') && response.includes('-');
     }
 
