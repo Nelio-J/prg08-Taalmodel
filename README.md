@@ -1,5 +1,5 @@
 
-<h1>
+<h1 align=center>
   <br>
   <a href="https://github.com/Nelio-J/prg08-Taalmodel"><img src="https://www.pngmart.com/files/2/Pokeball-PNG-Image.png" alt="Pokémon Moveset Generator Logo" width="200"></a>
   <br>
@@ -9,7 +9,7 @@
 
 <h4 align="center">An app built on top of <a href="https://openai.com/" target="_blank">OpenAI</a> to generate competitive viable Pokémon builds. .</h4>
 
-<p>
+<p align=center>
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#credits">Credits</a>
@@ -53,13 +53,15 @@ $ npm install
     # Get your OpenAI API key from the OpenAI platform and add it here. The default is:
     OPENAI_API_KEY=your_api_key
 
-# If needed, add your OpenAI API key specifics in the configuration of model in openAIRoutes.js. My current configuration uses Azure OpenAI. If you want to use the default, you can remove everything related to Azure, so you end up with:
+# If needed, add your OpenAI API key specifics in the configuration of model in openAIRoutes.js.
+# My current configuration uses Azure OpenAI. If you want to use the default, you can remove
+# everything related to Azure, so you end up with:
     const model = new ChatOpenAI({
         openAIApiKey: process.env.OPENAI_API_KEY,
         });
         
 
-# Run the app
+# Run the app (from the server directory)
 $ npm run dev
 ```
 
