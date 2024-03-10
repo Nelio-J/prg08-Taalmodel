@@ -30,6 +30,7 @@
 
 > **Notes**
 > This app was build with GPT3.5. The newest Pokémon game GPT3.5 knows is Pokémon Sword and Shield. This means that the app will only generate movesets for Pokémon that are available in Pokémon Sword and Shield.
+> 
 > [client_react](https://github.com/Nelio-J/prg08-Taalmodel/tree/master/client_react) is a basic set-up for a front-end with React. It's currently unused and meant for future use.
 
 ## How To Use
@@ -38,7 +39,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/amitmerchant1990/electron-markdownify
+$ git clone https://github.com/Nelio-J/prg08-Taalmodel.git
 
 # Go into the repository
 $ cd server
